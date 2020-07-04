@@ -48,6 +48,23 @@ int main(void){
 				printList(head);
 				break;
 
+            case 4://deletting a character
+
+                if(!isEmpty()){
+                    printf("Enter a character to be deleted:");
+                    scanf("%c",&item);
+
+                    if(delete(&head,item)){
+                        printf("%c is deleted",item);
+                        printList(head);
+                    }else{
+                        printf("Character not found:%c !",item);
+                    }
+                }else{
+                    prinf("List is empty !");
+                }
+                break;
+
 			default:
 				printf("invalid choice !\n");
 
@@ -71,7 +88,7 @@ void insertAtBeginning(ListNodePtr *head,char val){
 }
 
 void insertAtEnd(ListNodePtr *head,char val){
-	
+
 	ListNodePtr current=*head;
 
 		if(current != NULL){
@@ -106,3 +123,55 @@ void printList(ListNodePtr currentPtr){
 	}
 }
 
+void insert(ListNodePtr *head,char value){
+
+ListNodePtr previousPtr;
+ListNodePtr currentPtr;
+ListNodePtr newPtr;
+
+//First creating the new data field
+
+newptr=malloc(sizeof(node_t));
+
+if(newPtr!=NULL){
+
+newPtr->data=value;
+newPtr->nextPtr=NULL;
+
+currentPtr=*head;
+previousPtr=NULL;
+
+while(currentPtr!=NULL && (currentPtr->data<value)){
+    previousPtr=currentPtr;
+    currentPtr=currentPtr->nextPtr;
+}
+
+if(previousPtr==NULL){
+ newPtr->nextPtr=*head;
+ *head=newPtr;
+
+}else{
+previousPtr->nextPtr=newPtr;
+newPtr->nextPtr=currentPtr;
+}
+
+}else{
+printf("No memory available for:%c!",value);
+}
+}
+
+
+void deleteAtBeginning(ListNodePtr *head){
+
+ListNodePtr tempPtr;
+//just free the first pointer
+
+if(head==NULL){
+    return;
+}else{
+    tempPtr=*head;
+    *head=(*head)->nextPtr;
+    free(tempPtr);
+    }
+
+}

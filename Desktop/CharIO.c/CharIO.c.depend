@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1593090218 source:e:\programs\chario.c\main.c
+	"MyHeader.h"
+
+1593078261 source:e:\programs\chario.c\readfromstdin.c
+	"MyHeader.h"
+
+1593090229 e:\programs\chario.c\myheader.h
+	<stdio.h>
+	<stdlib.h>
+
+1593078330 source:e:\programs\chario.c\readingfromfile.c
+	"MyHeader.h"
+
+1593079345 source:e:\programs\chario.c\readusinggetchar.c
+	"MyHeader.h"
+
+1593089254 source:e:\programs\chario.c\output.c
+	"MyHeader.h"
+
